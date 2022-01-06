@@ -49,7 +49,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
         run: |
           dotnet sonarscanner begin /k:"BrimmingDev_twilio-csharp" /o:"brimmingdev" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
           dotnet build Twilio.sln
