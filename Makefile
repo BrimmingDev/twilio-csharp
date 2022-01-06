@@ -30,7 +30,7 @@ docker-push:
 	docker push twilio/twilio-csharp:latest
 
 cover:
-	dotnet sonarscanner begin /k:"twilio_twilio-csharp" /d:sonar.host.url=https://sonarcloud.io /o:"twilio" /d:sonar.login="${SONAR_TOKEN}" /d:sonar.language="cs" /d:sonar.exclusions="src/Twilio/Rest/**/*.*,test/Twilio.Test/**/*.*" /d:sonar.cs.opencover.reportsPaths="test/lcov.net451.opencover.xml"
+	dotnet sonarscanner begin /k:"BrimmingDev_twilio-csharp" /o:"brimmingdev" /d:sonar.host.url=https://sonarcloud.io /d:sonar.login="${SONAR_TOKEN}" /d:sonar.language="cs" /d:sonar.exclusions="src/Twilio/Rest/**/*.*,test/Twilio.Test/**/*.*" /d:sonar.cs.opencover.reportsPaths="test/lcov.net451.opencover.xml"
 	dotnet build Twilio.sln
 	dotnet test test/Twilio.Test/Twilio.Test.csproj --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../lcov
 	dotnet sonarscanner end /d:sonar.login="${SONAR_TOKEN}"
